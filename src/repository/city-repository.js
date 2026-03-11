@@ -23,5 +23,30 @@ class cityRepository {
             throw {error};
         }
     }
+
+    async updateCity(cityId, data){
+        try {
+            const city = City.update(data, {
+                where: {
+                    id: cityId
+                }
+            });
+        } catch (error) {
+            
+        }
+    }
+
+    async getCity (cityId){
+        try {
+            const city = await City.findone({
+                where: {
+                    id: cityId
+                }
+            });
+            return city;
+        } catch (error) {
+            throw {error};
+        }
+    }
 }
 module.exports = cityRepository;
