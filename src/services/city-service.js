@@ -1,13 +1,13 @@
-const { cityRepository } = require('../repository/index');
+const { CityRepository } = require('../repository/index');
 
-class cityService {
-    constructor(cityRepository) {
-        this.cityRepository = cityRepository;
+class CityService {
+    constructor() {
+        this.cityRepository = new CityRepository();
     }
 
     async createCity(data){
         try {
-            const city = await this.cityRepository.creatCity(data);
+            const city = await this.cityRepository.createCity(data);
             return city;
         } catch (error) {
             console.log("Something went wrong on service side");
@@ -45,3 +45,5 @@ class cityService {
         }
     }
 }
+
+module.exports = CityService;

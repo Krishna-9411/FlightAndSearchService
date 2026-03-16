@@ -1,6 +1,6 @@
 const { City } = require('../models/index');
 
-class cityRepository {
+class CityRepository {
     async createCity ({ name }){
         try{
             const city = await City.create({ name });
@@ -27,20 +27,20 @@ class cityRepository {
 
     async updateCity(cityId, data){
         try {
-            const city = City.update(data, {
+            const city = await City.update(data, {
                 where: {
                     id: cityId
                 }
             });
             return city;
         } catch (error) {
-            
+            throw error;
         }
     }
 
     async getCity (cityId){
         try {
-            const city = await City.findone({
+            const city = await City.findOne({
                 where: {
                     id: cityId
                 }
@@ -51,4 +51,4 @@ class cityRepository {
         }
     }
 }
-module.exports = cityRepository;
+module.exports = CityRepository;
