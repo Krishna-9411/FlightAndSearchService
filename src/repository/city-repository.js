@@ -18,6 +18,7 @@ class cityRepository {
                     id: cityId
                 }
             });
+            return true; 
         }
         catch(error){
             throw {error};
@@ -31,6 +32,7 @@ class cityRepository {
                     id: cityId
                 }
             });
+            return city;
         } catch (error) {
             
         }

@@ -1,7 +1,7 @@
 const { cityRepository } = require('../repository/index');
 
 class cityService {
-    constructor() {
+    constructor(cityRepository) {
         this.cityRepository = cityRepository;
     }
 
